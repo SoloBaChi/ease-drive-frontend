@@ -66,7 +66,6 @@ const queryClient = useQueryClient();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-
     if(!file) return;
 
     setFormData(prev => ({
@@ -231,11 +230,14 @@ const queryClient = useQueryClient();
 
 
 export const EditProfileView = ({ onClose }) => {
-  
- const initialInputFields = ["fullName", "phoneNumber", "profileImage", "password"]
 
   return (
-    <FormProvider initialInputFields={initialInputFields}>
+    <FormProvider initialInputFields={{
+      fullName:"",
+      phoneNumber:"", 
+      profileImage:"", 
+      password:""
+    }}>
       <UpdatePassengerProfile onClose={ onClose }/>
     </FormProvider>
   );
